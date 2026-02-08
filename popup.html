@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">
+    <h1><span style="color: red;">IP</span><span h1 style="color: white;">Scanner</span><span style="color: red;">.</span></h1>
+    <div class="controls">
+      <button id="clearBtn" title="Clear all data">🗑️</button>
+      <button id="settingsBtn" title="Settings">⚙️</button>
+    </div>
+  </div>
+
+  <div id="settingsPanel" class="hidden">
+    <h3>AbuseIPDB API Key</h3>
+    <input type="text" id="apiKeyInput" placeholder="Enter your API key">
+    <button id="saveApiKey">Save</button>
+    <button id="closeSettings">Cancel</button>
+    <p class="info">Get your free API key at <a href="https://www.abuseipdb.com/account/api" target="_blank">abuseipdb.com</a></p>
+  </div>
+
+  <div id="mainPanel">
+    <div class="stats">
+      <div class="stat-item">
+        <span class="stat-value" id="totalIPs">0</span>
+        <span class="stat-label">Total IPs</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value" id="maliciousIPs">0</span>
+        <span class="stat-label">Malicious</span>
+      </div>
+    </div>
+
+    <div class="scan-section">
+      <button id="scanBtn" class="scan-button">🔍 Scan All</button>
+    </div>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search IPs...">
+    </div>
+
+    <div id="ipList"></div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

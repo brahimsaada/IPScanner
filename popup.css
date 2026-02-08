@@ -1,0 +1,363 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 400px;
+  max-height: 600px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+.header {
+  background: black;
+  color: white;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.controls {
+  display: flex;
+  gap: 8px;
+}
+
+.controls button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.controls button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.stats {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: black;
+}
+
+#maliciousIPs {
+  color: red;
+}
+
+.stat-label {
+  display: block;
+  font-size: 20px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.scan-section {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #f8f9fa;
+}
+
+.scan-button {
+  width: 100%;
+  padding: 10px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.scan-button:hover:not(:disabled) {
+  background: #5568d3;
+}
+
+.scan-button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.search-box {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+#ipList {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.ip-card {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ip-card:hover {
+  background: #f8f9fa;
+}
+
+.ip-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.ip-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scan-single-btn {
+  padding: 4px 10px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.scan-single-btn:hover:not(:disabled) {
+  background: #5568d3;
+}
+
+.scan-single-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.ip-address {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.threat-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.threat-safe {
+  background: #d4edda;
+  color: #155724;
+}
+
+.threat-low {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.threat-medium {
+  background: #ffe5cc;
+  color: #cc5200;
+}
+
+.threat-high {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.threat-loading {
+  background: #e7f3ff;
+  color: #004085;
+}
+
+.ip-details {
+  display: none;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.ip-card.expanded .ip-details {
+  display: block;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 13px;
+}
+
+.detail-label {
+  color: #666;
+  font-weight: 500;
+}
+
+.detail-value {
+  color: #333;
+  font-weight: 600;
+}
+
+.geo-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 13px;
+  color: #666;
+}
+
+.sources {
+  margin-top: 8px;
+}
+
+.sources-title {
+  font-size: 12px;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.source-url {
+  font-size: 11px;
+  color: #667eea;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 2px 0;
+}
+
+.abuseipdb-link {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.check-link {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #667eea;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.check-link:hover {
+  background: #5568d3;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#settingsPanel {
+  padding: 20px;
+}
+
+#settingsPanel h3 {
+  margin-bottom: 12px;
+  color: #333;
+}
+
+#settingsPanel input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+#settingsPanel button {
+  padding: 8px 16px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#saveApiKey {
+  background: #667eea;
+  color: white;
+}
+
+#closeSettings {
+  background: #e0e0e0;
+  color: #333;
+}
+
+#settingsPanel button:hover {
+  opacity: 0.9;
+}
+
+.info {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #666;
+}
+
+.info a {
+  color: #667eea;
+  text-decoration: none;
+}
+
+.empty-state {
+  padding: 40px 20px;
+  text-align: center;
+  color: #666;
+}
+
+.empty-state p {
+  margin-top: 8px;
+  font-size: 13px;
+}
